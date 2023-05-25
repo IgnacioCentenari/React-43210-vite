@@ -1,4 +1,4 @@
-header{
+.NavBar{
     background-color: black;
     width: 100%;
     position: sticky;
@@ -9,32 +9,32 @@ header{
     align-items: center;
 }
 
-header h2{
+.NavBar h3{
         color: white;
         font-size: 50px;
         font-style: italic;
         font-weight: 400;
+        text-decoration: none;
 }
 
-header nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav ul{
-    list-style: none;
+.Categories{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header nav ul li{
-                font-size: 20px;
-                font-style: oblique;
-                font-weight: 300;
-                margin: 8px;
+.Categories a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: 300;
+    margin: 8px;
+    text-decoration: none;
+    color: white;
 }
+
 
 header nav ul li a{
     text-decoration: none;

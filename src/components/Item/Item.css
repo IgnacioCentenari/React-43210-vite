@@ -1,0 +1,27 @@
+.ListGroup{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.CardItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 250px;
+    border: 2px solid black;
+}
+
+.CardItem picture img{
+    object-fit: contain;
+    height: 275px;
+    width: 100%;
+}
+
+.ItemHeader{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-weight: 200;
+}
