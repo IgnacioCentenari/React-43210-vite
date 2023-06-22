@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     border: 2px solid black;
-    height: 500px;
+    height: auto;
     width: 400px;
 }
 

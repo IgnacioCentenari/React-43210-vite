@@ -1,7 +1,9 @@
 .ItemListContainer{
+    overflow-x: auto;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 h1{

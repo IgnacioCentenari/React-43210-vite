@@ -161,6 +161,51 @@ const products = [
         stock: 5,
         description: 'Zapatos estilo "Loafer". Diseñado por Tyler Okonma'
     },
+    {
+        id: '19',
+        name: 'Remera Polo "Wavy red" - By le Fleur*',
+        price: 80 ,
+        category: 'Remera',
+        img: '/img/RemeraPoloWavyRed.jpg',
+        stock: 5,
+        description: 'Remera estilo "Polo", hecha en Italia con las mejores telas del mercado. Diseñado por Tyler Okonma'
+    },
+    {
+        id: '20',
+        name: 'Remera Polo "Wavy Green" - By le Fleur*',
+        price: 80 ,
+        category: 'Remera',
+        img: '/img/RemeraPoloWavyGreen.jpg',
+        stock: 5,
+        description: 'Remera estilo "Polo", hecha en Italia con las mejores telas del mercado. Diseñado por Tyler Okonma'
+    },
+    {
+        id: '21',
+        name: 'WorkWear pants "Brown" - By le Fleur*',
+        price: 100 ,
+        category: 'Pantalones',
+        img: '/img/WorkWearPantsBrown.jpg',
+        stock: 2,
+        description: 'Pantalon estilo "workwear", hecho en Italia con las mejores telas del mercado. Diseñado por Tyler Okonma'
+    },
+    {
+        id: '22',
+        name: 'College Shorts - "Blue"',
+        price: 50 ,
+        category: 'Pantalones',
+        img: '/img/collegeShortBlue.jpg',
+        stock: 10,
+        description: 'Pantalon estilo "College", hecho en Italia con las mejores telas del mercado. Diseñado por Tyler Okonma'
+    },
+    {
+        id: '23',
+        name: 'Multi Shorts - "Black"',
+        price: 35 ,
+        category: 'Pantalones',
+        img: '/img/MultiShortsBlack.jpg',
+        stock: 20,
+        description: 'Pantalon estilo "Multi", hecho en Italia con las mejores telas del mercado. Diseñado por Tyler Okonma'
+    },
 ]
 
 export const getProducts = () => {
