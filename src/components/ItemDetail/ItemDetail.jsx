@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 const ItemDetail = ({id, name, img, category, description, price, stock}) => {
     const[quantityAdded, setQuantityAdded] = useState(0)
 
-    const {addItem} = useContext(CartContext)
+    const {addProduct} = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -16,7 +16,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
             id,name,price, img
         }
 
-        addItem(item, quantity)
+        addProduct(item, quantity)
     }
 
     return (
