@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext'
 import CartItem from '../CartItem/CartItem' 
 import { Link, useNavigate } from 'react-router-dom'
 import { createOrder } from '../../services/firebase'
+import Checkout from '../Checkout/Checkout'
 
 const Cart = () => {
     const {cart, clearCart, totalQuantity, totalPrice} = useContext(CartContext)
@@ -40,7 +41,7 @@ const Cart = () => {
             { cart.map(p => <CartItem key={p.id} {...p}/>)}
             <h3>Total: ${totalPrice()}</h3>
             <button onClick={() => clearCart()} className='Button OnAddButton'>Vaciar Carrito</button>
-            {/* <Link to='/checkout' className='Option'><Checkout></Checkout></Link> */}
+            <Link to='./Checkout' className='Option OnAddButton'>Finalizar compra</Link> 
         </div>
     )
 }

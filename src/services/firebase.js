@@ -27,6 +27,12 @@ export async function getData() {
         return { ...doc.data(), id: doc.id }
     } )
 
+    /* for (let item of products) {
+        item.index = item.id;
+        delete item.id;
+        const res = await addDoc(productsCollectionRef, item);
+    } */
+
     return dataDocs
 }
 
