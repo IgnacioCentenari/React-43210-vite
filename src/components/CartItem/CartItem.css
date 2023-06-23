@@ -1,0 +1,32 @@
+.CartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    height: auto;
+    width: 400px;
+    border-radius: 2%;
+}
+
+.CartContainerFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.CartContainer img{
+    object-fit: contain;
+    width: 100%;
+    height: 300px;
+}
+
+.ItemCartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -20,9 +20,10 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return(
-        <div className='ItemDetailContainer'>
-            <ItemDetail {...product} />
-        </div>
+            <div className='ItemDetailContainer'>
+                <ItemDetail {...product} />
+            </div>
+        
     )
 }
 

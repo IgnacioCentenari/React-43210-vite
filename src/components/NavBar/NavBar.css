@@ -14,6 +14,11 @@
         color: white;
         font-size: 50px;
         text-decoration: none;
+        transition: 1s;
+}
+
+.NavBar h3:hover{
+    transform: scale(1.10);
 }
 
 .Categories{
@@ -31,8 +36,12 @@
     margin: 8px;
     text-decoration: none;
     color: white;
+    transition: 1s;
 }
 
+.Categories a:hover{
+    transform: scale(1.05);
+}
 
 header nav ul li a{
     text-decoration: none;
