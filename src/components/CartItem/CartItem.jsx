@@ -17,7 +17,6 @@ const CartItem = () => {
               <p>Subtotal: ${(p.price * p.quantity).toFixed(2)}</p>
         </div>
             ))}
-            <p>Precio total: ${totalPrice}</p>
         </div>
     );
 }

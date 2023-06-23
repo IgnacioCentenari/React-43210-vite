@@ -3,6 +3,7 @@
     height: 25px;
     width: 25px;
     margin-right: 5px;
+    margin-bottom: 1px;
 }
 
 .CartNumber{
@@ -13,4 +14,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
