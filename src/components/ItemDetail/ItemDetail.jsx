@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext'
 const ItemDetail = ({id, name, img, category, description, price, stock}) => {
     const[quantityAdded, setQuantityAdded] = useState(0)
 
-    const {addProduct} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
@@ -16,8 +16,16 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
             id,name,price, img
         }
 
-        addProduct(item, quantity)
-    }
+        addItem(item, quantity)
+
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Agregaste ' + quantity + ': ' + name + ' al carrito',
+            showConfirmButton: false,
+            timer: 2000
+    })
+}
 
     return (
         <div>

@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, orderBy } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, orderBy, addDoc } from "firebase/firestore"
 import products from "../data/products"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCPWL-Woe9HLYDxSXmhNEL7ougLBL4aKlg",
-    authDomain: "react-coder-3d68c.firebaseapp.com",
-    projectId: "react-coder-3d68c",
-    storageBucket: "react-coder-3d68c.appspot.com",
-    messagingSenderId: "142373513377",
-    appId: "1:142373513377:web:b89d54dd0d92eb8d1068e0"
+    apiKey: import.meta.env.VITE_APP_apiKey,
+    authDomain: import.meta.env.VITE_APP_authDomain,
+    projectId: import.meta.env.VITE_APP_projectId,
+    storageBucket: import.meta.env.VITE_APP_storageBucket,
+    messagingSenderId: import.meta.env.VITE_APP_messagingSenderId,
+    appId: import.meta.env.VITE_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);
@@ -56,9 +56,9 @@ export async function getCategoryData(idCategory) {
 }
 
 export async function createOrder(data) {
-    const ordersCollectionRef = collection(db, "orders");
-    const response = await addDoc(ordersCollectionRef, data);
-    return response.id;
+    const ordersCollectionRef = collection(db, "orders")
+    const response = await addDoc(ordersCollectionRef, data)
+    return response.id
 }
 
 export async function exportData() {

@@ -1,49 +1,45 @@
 import './Cart.css'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import CartItem from '../CartItem/CartItem' 
-import { Link, useNavigate } from 'react-router-dom'
-import { createOrder } from '../../services/firebase'
-import Checkout from '../Checkout/Checkout'
+import { Link } from 'react-router-dom'
+
+
 
 const Cart = () => {
-    const {cart, clearCart, totalQuantity, totalPrice} = useContext(CartContext)
-    const navigateTo = useNavigate();
 
-    async function handleConfirm(){
-        const order = {
-            items: cart,
-            buyer: {
-                name: "Nacho",
-                phone: 123,
-                email: "nacho@gmail.com"
-            },
-            Date: new Date(),
-            price: totalPrice()
-        }
+    const { cart, clearCart, totalQuantity, totalPrice } = useContext(CartContext);
 
-        const id = await createOrder(order);
-        clearCart()
-        navigateTo(`/order-confirmation/${id}`)
-    }
+        return (
+        <div>
+            {cart.map((p) => 
+            <div className='CartContainerFlex'>
+                <div key={p.id} className="ItemCartContainer">
+                <img src={p.img} alt="" />
+                <h3>{p.name}</h3>
+                <p>Cantidad:{p.quantity}</p>
+                <p>Subtotal: ${(p.price * p.quantity).toFixed(2)}</p>
+            </div>
+            </div>
+                )
+            }
+            {
+                cart.length > 0 ?
 
-    if(totalQuantity === 0){
-        return(
+                <div className='PagoFinal'>
+                    <h3>Total: ${totalPrice()}</h3>
+                    <button onClick={() => clearCart()} className='Button OnAddButton'>Vaciar Carrito</button>
+                    <Link to='./Checkout' className='Option OnAddButton'>Finalizar compra</Link> 
+                </div>
+            
+            :
             <div>
                 <h3>No se encuentran items en el carrito</h3>
-                <Link to='/' className='Option'></Link>
+                <Link to='/' className='Option OnAddButton'>Productos</Link>
             </div>
-        )
-    }
-
-    return (
-        <div>
-            <CartItem key={p.id} {...p}/> 
-            <h3>Total: ${totalPrice()}</h3>
-            <button onClick={() => clearCart()} className='Button OnAddButton'>Vaciar Carrito</button>
-            <Link to='./Checkout' className='Option OnAddButton'>Finalizar compra</Link> 
+            }
         </div>
-    )
+    ); 
 }
 
 export default Cart
+

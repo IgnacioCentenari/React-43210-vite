@@ -1,69 +1,97 @@
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 import "./Checkout.css"
-import { useState } from "react";
+import { useContext, useState} from "react";
+import { createOrder } from "../../services/firebase";
 
-export default function Checkout({ onConfirm }) {
-    const [userData, setUserData] = useState({
-        nombre: "",
-        phone: "",
-        email: "",
-});
+const Checkout = () => {
+    const { cart, clearCart, totalPrice } = useContext(CartContext)
+    const navigateTo = useNavigate()
 
-function onInputChange(evt) {
-    const prop = evt.target.name;
-    const value = evt.target.value;
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [city, setCity] = useState('')
+    const [postalCode, setPostalCode] = useState('')
 
-    const newData = { ...userData };
-    newData[prop] = value;
-    setUserData(newData);
+    const OnSubmit = async (e) => {
+        e.preventDefault()
+
+    const order = {
+        items: cart,
+        buyer: {
+        name: "Ignacio",
+        email: "Ignaciocentenari@gmail.com",
+        address: "12345",
+        city: "12345",
+        postalCode: "12345",
+        },
+        date: new Date(),
+        price: totalPrice()
+    };
+
+    const id = await createOrder(order)
+    navigateTo(`/OrderId/${id}`)
+
+        setName('')
+        setEmail('')
+        setCity('')
+        setPostalCode('')
+
+    
+    clearCart()
+    };
+
+    return (
+        <form onSubmit = {OnSubmit}>
+            <h1>Ingresa tus datos para realizar la compra</h1>
+            <div >
+                <label >Nombre y Apellido</label>
+                <input
+                    placeholder="Nombre Completo"
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label>Correo Electronico</label>
+                <input
+                    placeholder="GolfLeFleur@gmail.com"
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label>Ciudad</label>
+                <input
+                    placeholder="Buenos Aires"
+                    type="text"
+                    id="city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label>Codigo Postal</label>
+                <input
+                    placeholder="64606"
+                    type="text"
+                    id="Codigo Postal"
+                    value={postalCode}
+                    onChange={(e) => setPostalCode(e.target.value)}
+                    required
+                />
+            </div>
+            <button>Crear orden</button>
+        </form>
+    )
 }
 
-function onSubmit(evt) {
-    evt.preventDefault();
-    onConfirm(userData);
-}
-
-function handleReset(evt) {
-    evt.preventDefault();
-    setUserData({
-    nombre: "",
-    phone: "",
-    email: "",
-    });
-}
-
-return (
-    <form className="checkout-container" onSubmit={onSubmit}>
-        <h1>Ingresa tus datos para realizar la compra</h1>
-        <div >
-            <label >Nombre</label>
-            <input
-                value={userData.nombre}
-                name="nombre"
-                type="text"
-                onChange={onInputChange}
-            />
-        </div>
-        <div>
-            <label >Teléfono</label>
-            <input
-                value={userData.phone}
-                name="phone"
-                type="text"
-                onChange={onInputChange}
-            />
-        </div>
-        <div>
-            <label>Email</label>
-            <input
-                value={userData.email}
-                name="email"
-                type="text"
-                onChange={onInputChange}
-            />
-        </div>
-        <button>Crear orden</button>
-        <button onClick={handleReset}>Vaciar</button>
-    </form>
-    );
-}
+export default Checkout
 
